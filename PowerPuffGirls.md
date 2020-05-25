@@ -51,3 +51,25 @@ Print the required output in a separate line.
 20 40 90 50 </br>
 ##### Output
 8</br>
+
+
+
+#######solution
+
+function production($req_qty,$avlbl_qty){
+  return intval((int)$avlbl_qty/(int)$req_qty);
+}
+  /* Read input from STDIN. Print your output to STDOUT*/
+  $fp = fopen("php://stdin", "r");
+  //Write code here
+  $no_of_ingdt = fgets($fp);
+  
+  $req_qty_of_ingdt = explode(" ", trim(fgets($fp)));
+  $avlbl_qty_of_ingdt = explode(" ",trim(fgets($fp)));
+  
+  $c = array_map('production', $req_qty_of_ingdt, $avlbl_qty_of_ingdt);
+  
+  print(min($c))."\n";
+  fclose($fp)
+?>
+
